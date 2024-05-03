@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const bloques = await fetchData();
 
-  const integrantes = ["😁", "🤣", "😴", "😯", "😫", "😆", "😛", "🤔"];
+  const integrantes = ["Daniela", "Marina", "Franco", "Juan Pablo", "Agustín", "Elias", "Gabriel", "Maximiliano"];
 
   // Algoritmo Fisher-Yates para mezclar la lista
   // Fuente: https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates
