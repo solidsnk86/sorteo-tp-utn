@@ -22,6 +22,7 @@ const integrantes = [
 
 // Función para mezclar una lista de manera aleatoria (algoritmo Fisher-Yates)
 // Fuente: https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates
+
 const mezclar = (lista) => {
   for (let i = lista.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -73,10 +74,25 @@ $body.innerHTML = `
     </table>
     <aside>
     <button onclick="sortButton()">Sortear</button>
+    <button onclick="compartir()">Compartir</button>
     </aside>
   </div>
 `;
 
 const sortButton = () => {
-  window.location.reload()
-}
+  window.location.reload();
+};
+
+const compartir = () => {
+  if (navigator.share) {
+    try {
+      navigator.share({
+        title: document.title,
+        text: "Programa para sortear TP 🙄",
+        url: window.location.href,
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+};
