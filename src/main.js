@@ -10,13 +10,13 @@ const calculadoraMateriales = {
 };
 
 const integrantes = [
-  "Juan Pablo",
-  "Marina",
-  "Daniela",
-  "Franco",
-  "Gabriel",
-  "Maximiliano",
-  "Agustín",
+  "Juan 3.14",
+  "Mari",
+  "Dani",
+  "Fran",
+  "Gaby",
+  "Maxi",
+  "Agus",
   "Elias",
 ];
 
@@ -49,6 +49,7 @@ $body.style.fontFamily = "system-ui";
 $body.style.justifyContent = "center";
 $body.style.margin = "10vh auto";
 $body.style.display = "flex";
+$body.style.padding = "10px";
 
 $body.innerHTML = `
   <div>

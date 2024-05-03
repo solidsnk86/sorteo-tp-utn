@@ -32,6 +32,7 @@ h2, th {
 
 table {
   font-family: monospace;
+  text-wrap: balance;
 }
 
 aside {
