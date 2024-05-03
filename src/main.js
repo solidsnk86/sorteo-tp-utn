@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   ];
 
   // Algoritmo Fisher-Yates para mezclar la lista
+  // Fuente: https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates
   const mezclar = (lista) => {
     for (let i = lista.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
