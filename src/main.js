@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   $body.innerHTML = `
     <div>
-      <h2>Asignaciones de bloques TP PSeInt</h2><img class="inline" src=${urlAttribute} width="45px" height="45px" />
+      <h2>Asignaciones de bloques TP PSeInt</h2>
+      <img style="display: flex; margin: 10px auto" src=${urlAttribute} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
         <thead>
           <tr>
