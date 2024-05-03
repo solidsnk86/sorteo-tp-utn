@@ -62,9 +62,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   $body.style.alignItems = "center";
   $body.style.padding = "10px";
 
+  const favicon = document.querySelector("link[rel='shortcut icon']");
+  const urlAttribute = favicon.getAttribute("href");
+
   $body.innerHTML = `
     <div>
-      <h2>Asignaciones de bloques TP PSeInt</h2>
+      <h2>Asignaciones de bloques TP PSeInt</h2><img class="inline" src=${urlAttribute} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
         <thead>
           <tr>
