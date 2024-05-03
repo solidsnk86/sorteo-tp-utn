@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         .slice(1)
         .map((fila) => {
           const [bloques] = fila.split(",");
-          return bloques.trim(); // Asegúrate de eliminar espacios no deseados
+          return bloques.trim();
         });
       return formattedData;
     } catch (error) {
