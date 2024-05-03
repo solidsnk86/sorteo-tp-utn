@@ -2,5 +2,4 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.autoSave": "afterDelay",
-  "liveServer.settings.port": 5501
 }

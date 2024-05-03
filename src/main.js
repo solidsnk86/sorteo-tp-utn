@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const $body = document.body;
 
-  $body.style.background = "#21252B";
   $body.style.color = "#fff";
   $body.style.fontFamily = "system-ui";
   $body.style.justifyContent = "center";
