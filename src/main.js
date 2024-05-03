@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   $body.style.color = "#fff";
   $body.style.fontFamily = "system-ui";
   $body.style.justifyContent = "center";
-  $body.style.margin = "5vh auto";
   $body.style.display = "flex";
   $body.style.flexDirection = "column";
   $body.style.alignItems = "center";
