@@ -49,7 +49,7 @@ aside {
 button {
   border: 1px solid #777;
   padding: 8px;
-  background: #88888893;
+  background: linear-gradient(to top, #303c4c, #777);
   border-radius: 6px;
   justify-content: center;
   margin: 10px auto;
@@ -61,6 +61,7 @@ button {
 button:hover {
   filter: brightness(125%);
   transition: 0.3s all;
+  box-shadow: 2px 4px 6px #111;
 }
 
 .bloque {
