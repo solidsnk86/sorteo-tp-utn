@@ -38,6 +38,7 @@ table {
 aside {
   justify-content: center;
   display: flex;
+  margin: 0 auto;
 }
 
 button {
@@ -59,6 +60,7 @@ button:hover {
 
 .bloque {
   background-color: #1d2f3d;
+  width: 400px;
 }
 
 .integrante {
@@ -68,4 +70,10 @@ button:hover {
 
 thead {
   background: linear-gradient(to top, #303c4c, #777);
+}
+
+@media (max-width: 400px) {
+  .bloque {
+    width: auto;
+  }
 }
