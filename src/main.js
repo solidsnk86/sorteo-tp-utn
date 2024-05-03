@@ -10,7 +10,7 @@ const calculadoraMateriales = {
 };
 
 const integrantes = [
-  "Juan 3.14",
+  "JuanPa",
   "Mari",
   "Dani",
   "Fran",
