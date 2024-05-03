@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box !important;
+}
+
+body::before {
+  --line: hsla(0, 0%, 39%, 0.15);
+  --size: 60px;
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+      var(--size) var(--size);
+  mask: linear-gradient(-15deg, transparent 30%, white);
+  top: 0;
+  transform-style: flat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+aside {
+  justify-content: center;
+  display: flex;
+}
+
+button {
+  border: 1px solid #777;
+  padding: 8px;
+  background: #88888893;
+  border-radius: 6px;
+  justify-content: center;
+  margin: 10px auto;
+  cursor: pointer;
+  color: aliceblue;
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(125%);
+  transition: 0.3s all;
+}
+
+.bloque {
+  background-color: #1d2f3d;
+}
+
+.integrante {
+  background-color: #1d2f3d;
+}
+
+thead {
+  background: linear-gradient(to bottom, #303c4c, #777);
+}
