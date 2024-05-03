@@ -101,7 +101,7 @@ const compartir = () => {
     try {
       navigator.share({
         title: document.title,
-        text: "Asignación de bloques TP 🙄",
+        text: "Asignación de bloques TP PSeInt 🙄",
         url: window.location.href,
       });
     } catch (error) {
