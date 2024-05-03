@@ -1,13 +1,28 @@
 const calculadoraMateriales = {
-  bloque1: "Bloque 1: Menú Principal",
+  bloque1: "Bloque 1: Calcular Muros",
   bloque2: "Bloque 2: Calcular Superficie y Volumen",
   bloque3: "Bloque 3: Calcular Muro",
-  bloque4: "Bloque 4: Calcular Viga",
+  bloque4: "Bloque 4: Calcular Viga y Techo",
   bloque5: "Bloque 5: Calcular Columna",
   bloque6: "Bloque 6: Calcular Contrapisos",
-  bloque7: "Bloque 7: Calcular Techo",
-  bloque8: "Bloque 8: Calcular Pisos, Pintura e Iluminación",
+  bloque7: "Bloque 7: Calcular Pintura",
+  bloque8: "Bloque 8: Iluminación",
 };
+
+const fetchData = async () => {
+  const response = await fetch(process.env.GOOGLE_SHEETS_URL);
+  const csvData = await response.text();
+  const formatData = csvData
+    .split("\n")
+    .slice(1)
+    .map((fila) => {
+      const [bloques] = fila.split(",");
+      return { bloques };
+    });
+  return formatData;
+};
+
+fetchData();
 
 const integrantes = [
   "JuanPa",
@@ -37,9 +52,6 @@ const asignaciones = {};
 Object.keys(calculadoraMateriales).forEach((bloque, index) => {
   asignaciones[calculadoraMateriales[bloque]] = integrantesMezclados[index];
 });
-
-console.log("Asignaciones de bloques:");
-console.log(asignaciones);
 
 const $body = document.body;
 
