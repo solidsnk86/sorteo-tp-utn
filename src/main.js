@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const bloques = await fetchData();
 
   const integrantes = [
-    "JuanPa",
-    "Mari",
-    "Dani",
-    "Fran",
-    "Gaby",
-    "Maxi",
-    "Agus",
+    "Juan Pablo",
+    "Marina",
+    "Daniela",
+    "Franco",
+    "Gabriel",
+    "Maximiliano",
+    "Agustín",
     "Elias",
   ];
 
