@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  // Preloader
+  const spinner = document.querySelector(".spinner");
+  const container_spinner = document.querySelector(".container-spinner");
+
+  if (spinner) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        spinner.classList.add("spinner");
+        container_spinner.classList.add("container-spinner");
+      }, 1000);
+      setTimeout(() => {
+        spinner.remove();
+        container_spinner.remove();
+      }, 2000);
+    });
+  }
   // Carga los datos desde Google Sheets
   const fetchData = async () => {
     try {
@@ -22,7 +38,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const bloques = await fetchData();
 
-  const integrantes = ["Daniela", "Marina", "Franco", "Juan Pablo", "Agustín", "Elias", "Gabriel", "Maximiliano"];
+  const integrantes = [
+    "Daniela",
+    "Marina",
+    "Franco",
+    "Juan Pablo",
+    "Agustín",
+    "Elias",
+    "Gabriel",
+    "Maximiliano",
+  ];
 
   // Algoritmo Fisher-Yates para mezclar la lista
   // Fuente: https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates
