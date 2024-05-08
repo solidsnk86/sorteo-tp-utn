@@ -43,11 +43,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     const csvData = await response.text();
     const formattedData = csvData.split("\n").slice(1);
-    const dataNeeded = formattedData[0].replace("Bloque 1: Calcular muro de ladrillo", "")
-    return dataNeeded.replace(",", "")
+    const dataNeeded = formattedData[0].replace(
+      "Bloque 1: Dibujo y Pintura ",
+      ""
+    );
+    return dataNeeded.replace(",", "");
   };
 
-  const titulo = await titulo_tp()
+  const titulo = await titulo_tp();
 
   const integrantes = [
     "Daniela",
