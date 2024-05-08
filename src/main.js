@@ -43,10 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     const csvData = await response.text();
     const formattedData = csvData.split("\n").slice(1);
-    const dataNeeded = formattedData[0].replace(
-      "Bloque 1: Dibujo y Pintura ",
-      ""
-    );
+    const dataNeeded = formattedData[0].split(",")[0];
+    console.log(dataNeeded)
     return dataNeeded.replace(",", "");
   };
 

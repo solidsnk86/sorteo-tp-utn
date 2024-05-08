@@ -19,7 +19,6 @@ El algoritmo `Fisher-Yates` es un algoritmo de permutaciones que técnicamente e
 **Más información en Wikipedia:**
 
 ```javascript
-// Algoritmo Fisher-Yates es el que se usa típicamente para barajar en los juegos de azar
 const barajar = (carta) => {
   for (let i = carta.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
