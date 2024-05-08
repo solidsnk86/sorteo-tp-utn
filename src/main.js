@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         .split("\n")
         .slice(1)
         .map((fila) => {
-          const [bloques] = fila.split(",");
-          return bloques.trim();
+          const [bloques] = fila.split(",").slice(1);
+          return bloques;
         });
       return formattedData;
     } catch (error) {
@@ -35,8 +35,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       return [];
     }
   };
-
   const bloques = await fetchData();
+
+  const titulo_tp = async () => {
+    const response = await fetch(
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv"
+    );
+    const csvData = await response.text();
+    const formattedData = csvData
+      .split("\n")
+      .slice(1)
+      .map((fila) => {
+        const [titulo_tp] = fila.split(",");
+        return titulo_tp.trim();
+      });
+    console.log(formattedData);
+  };
+
+  titulo_tp();
 
   const integrantes = [
     "Daniela",
@@ -82,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   $body.innerHTML = `
     <div>
-      <h2>Asignaciones de bloques TP PSeInt</h2>
+      <h2>${document.title}</h2>
       <img style="display: flex; margin: 10px auto" src=${urlAttribute} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
         <thead>
