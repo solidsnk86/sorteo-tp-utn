@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   $body.style.alignItems = "center";
   $body.style.padding = "10px";
 
+  // Se obtiene la url del favicon
   const favicon = document.querySelector("link[rel='shortcut icon']");
   const urlAttribute = favicon.getAttribute("href");
 
