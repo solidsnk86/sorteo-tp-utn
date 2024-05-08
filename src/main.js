@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }, 3000);
     });
   }
-  // Carga los datos desde Google Sheets
+  // Carga los datos desde Google Sheets y se le da formato al archivo .csv
   const fetchData = async () => {
     try {
       const response = await fetch(GOOGLE_SHEETS_URL);
