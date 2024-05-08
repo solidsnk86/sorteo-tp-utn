@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       setTimeout(() => {
         spinner.remove();
         container_spinner.remove();
-      }, 2000);
+      }, 3000);
     });
   }
   // Carga los datos desde Google Sheets

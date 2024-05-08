@@ -1,6 +1,6 @@
 # Sorteos de TP UTN
 
-`Pequeño programa básico para sortear bloques de un programa entre los integrantes`
+Pequeño programa básico para sortear bloques de un programa entre los integrantes del grupo de estudio e ir editando el contenido desde Google Sheets haciendo un fetch de un archivo `.csv` para luego dar formato al texto recibido y mostrarlo en el `HTML`.
 
 ### Herramientas empleadas:
 
