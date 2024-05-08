@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const csvData = await response.text();
     const formattedData = csvData.split("\n").slice(1);
     const dataNeeded = formattedData[0].split(",")[0];
-    return dataNeeded.replace(",", "");
+    return dataNeeded.split(",");
   };
 
   const titulo = await tituloTpFetch();
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (faviconUrl) {
     const faviconTag = document.querySelector("link[rel='shortcut icon']");
-    faviconTag.setAttribute("href", faviconUrl)
+    faviconTag.setAttribute("href", faviconUrl);
   }
 
   $body.innerHTML = `
@@ -137,4 +137,25 @@ document.addEventListener("DOMContentLoaded", async () => {
       </aside>
     </div>
   `;
+
+  console.log(document.body)
+
+  document.getElementById("sort").addEventListener("click", () => {
+    window.location.reload();
+  });
+
+  if (navigator.share) {
+    const sha = document.getElementById("share");
+    sha.addEventListener('click', () => {
+      try {
+        navigator.share({
+          title: document.title,
+          text: "",
+          url: window.location.href
+        })
+      } catch (error) {
+        throw new Error("El navegador no permite compartir.", error)
+      }
+    })
+  }
 });
