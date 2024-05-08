@@ -1,3 +1,6 @@
+const GOOGLE_SHEETS_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv";
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Preloader
   const spinner = document.querySelector(".spinner");
@@ -18,9 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Carga los datos desde Google Sheets
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv"
-      );
+      const response = await fetch(GOOGLE_SHEETS_URL);
       const csvData = await response.text();
       const formattedData = csvData
         .split("\n")
@@ -38,13 +39,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const bloques = await fetchData();
 
   const titulo_tp = async () => {
-    const response = await fetch(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv"
-    );
+    const response = await fetch(GOOGLE_SHEETS_URL);
     const csvData = await response.text();
     const formattedData = csvData.split("\n").slice(1);
     const dataNeeded = formattedData[0].split(",")[0];
-    console.log(dataNeeded)
+    console.log(dataNeeded);
     return dataNeeded.replace(",", "");
   };
 
