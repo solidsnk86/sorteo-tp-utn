@@ -1,6 +1,3 @@
-const GOOGLE_SHEETS_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv";
-
 document.addEventListener("DOMContentLoaded", async () => {
   // Preloader
   const spinner = document.querySelector(".spinner");
@@ -18,6 +15,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }, 3000);
     });
   }
+
+  const GOOGLE_SHEETS_URL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRH8tThGGQYqRxK51F5VQjx873q5N4T2K9MQ3T_bCHwg8IB2UIlo_8y3iWh50V6GmKmjC1HMlAeKVCJ/pub?output=csv";
   // Carga los datos desde Google Sheets y se le da formato al archivo .csv
   const fetchData = async () => {
     try {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
   const bloques = await fetchData();
 
-  const titulo_tp = async () => {
+  const tituloTpFetch = async () => {
     const response = await fetch(GOOGLE_SHEETS_URL);
     const csvData = await response.text();
     const formattedData = csvData.split("\n").slice(1);
@@ -46,7 +46,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     return dataNeeded.replace(",", "");
   };
 
-  const titulo = await titulo_tp();
+  const titulo = await tituloTpFetch();
+
+  if (titulo) {
+    const headerTitle = document.head.querySelector("title");
+    headerTitle.replaceChildren("", titulo);
+  }
 
   const integrantes = [
     "Daniela",
@@ -87,14 +92,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   $body.style.alignItems = "center";
   $body.style.padding = "10px";
 
-  // Se obtiene la url del favicon
-  const favicon = document.querySelector("link[rel='shortcut icon']");
-  const urlAttribute = favicon.getAttribute("href");
+  // Se obtiene la url del favicon para cambiar de imagen desde Google Sheets
+  const urlFaviconFetch = async () => {
+    const response = await fetch(GOOGLE_SHEETS_URL);
+    const csvData = response.text();
+    const dataReplace = (await csvData).split("\n");
+    const dataUse = dataReplace[1].split(",")[2];
+    return dataUse;
+  };
+
+  const faviconUrl = await urlFaviconFetch();
+
+  if (faviconUrl) {
+    const faviconTag = document.querySelector("link[rel='shortcut icon']");
+    faviconTag.setAttribute("href", faviconUrl)
+  }
 
   $body.innerHTML = `
     <div>
       <h2>${titulo}</h2>
-      <img style="display: flex; margin: 10px auto" src=${urlAttribute} width="45px" height="45px" />
+      <img style="display: flex; margin: 10px auto" src=${faviconUrl} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
         <thead>
           <tr>
@@ -115,27 +132,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         </tbody>
       </table>
       <aside>
-        <button onclick="sortButton()">Sortear</button>
-        <button onclick="compartir()">Compartir</button>
+        <button id="sort">Sortear</button>
+        <button id="share">Compartir</button>
       </aside>
     </div>
   `;
 });
-
-const sortButton = () => {
-  window.location.reload();
-};
-
-const compartir = () => {
-  if (navigator.share) {
-    try {
-      navigator.share({
-        title: document.title,
-        text: "Asignación de bloques TP PSeInt 🙄",
-        url: window.location.href,
-      });
-    } catch (error) {
-      console.error("Error al compartir:", error);
-    }
-  }
-};

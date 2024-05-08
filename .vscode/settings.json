@@ -2,4 +2,6 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.autoSave": "afterDelay",
+  "editor.guides.bracketPairs": true,
+  "editor.cursorBlinking": "expand"
 }
