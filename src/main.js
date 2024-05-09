@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   $body.innerHTML = `
-    <div>
+    <div id="data-container">
       <h2>${titulo}</h2>
       <img style="display: flex; margin: 10px auto" src=${faviconUrl} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
@@ -138,24 +138,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     </div>
   `;
 
-  console.log(document.body)
-
   document.getElementById("sort").addEventListener("click", () => {
     window.location.reload();
   });
 
   if (navigator.share) {
     const sha = document.getElementById("share");
-    sha.addEventListener('click', () => {
+    const dataShare = document.getElementById("data-container");
+    const content = dataShare.textContent;
+    
+    sha.addEventListener("click", () => {
       try {
         navigator.share({
           title: document.title,
-          text: "",
-          url: window.location.href
-        })
+          text: `Sorteo de bloques del día ${new Date().getDate}`, content,
+          url: window.location.href,
+        });
       } catch (error) {
-        throw new Error("El navegador no permite compartir.", error)
+        throw new Error("El navegador no permite compartir.", error);
       }
-    })
+    });
   }
 });
