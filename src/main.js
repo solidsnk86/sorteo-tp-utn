@@ -145,20 +145,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (navigator.share) {
     const sha = document.getElementById("share");
     const dataShare = document.getElementById("data-container");
-    const content = encodeURIComponent(dataShare.innerHTML);
 
     sha.addEventListener("click", () => {
       try {
-        const currentUrl = new URL(window.location.href);
-        const shareUrl = new URL(
-          `${currentUrl.origin}${currentUrl.pathname}?data=${content}`
-        );
-
-        console.log(shareUrl);
         navigator.share({
           title: titulo,
-          text: content,
-          url: shareUrl.href,
+          text: dataShare,
+          url: "",
         });
       } catch (error) {
         throw new Error("El navegador no permite compartir.", error);
