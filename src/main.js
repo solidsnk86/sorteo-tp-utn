@@ -146,12 +146,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sha = document.getElementById("share");
     const dataShare = document.getElementById("data-container");
     const content = dataShare.textContent;
-    
+
     sha.addEventListener("click", () => {
       try {
         navigator.share({
           title: document.title,
-          text: `Sorteo de bloques del día ${new Date().getDate()}`, content,
+          text: content,
           url: window.location.href,
         });
       } catch (error) {
