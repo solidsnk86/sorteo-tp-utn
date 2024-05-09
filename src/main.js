@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     faviconTag.setAttribute("href", faviconUrl);
   }
 
+  // Datos a mostrar en la interfaz
   $body.innerHTML = `
     <div id="data-container">
       <h2>${titulo}</h2>
@@ -124,16 +125,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             .map(
               ([bloque, integrante]) => `
               <tr>
-                <td class="bloque">${bloque}</td>
-                <td class="integrante">${integrante}</td>
+                <td class="bloque" title="${bloque} de ${integrante}">${bloque}</td>
+                <td class="integrante" title="Integrante ${integrante}">${integrante}</td>
               </tr>`
             )
             .join("")}
         </tbody>
       </table>
       <aside>
-        <button id="sort">Sortear</button>
-        <button id="share">Compartir</button>
+        <button id="sort" title="Sortear">Sortear</button>
+        <button id="share" title="Compartir">Compartir</button>
       </aside>
     </div>
   `;
@@ -141,7 +142,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("sort").addEventListener("click", () => {
     window.location.reload();
   });
-
+  // Compartir datos sorteados
   if (navigator.share) {
     const sha = document.getElementById("share");
     const dataShare = document.getElementById("data-container");
