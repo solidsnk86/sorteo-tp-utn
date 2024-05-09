@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (titulo) {
     const headerTitle = document.head.querySelector("title");
     headerTitle.replaceChildren("", titulo);
+  } else {
+    throw new Error("No fue posible introducir el título.", error);
   }
 
   const integrantes = [
@@ -106,6 +108,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (faviconUrl) {
     const faviconTag = document.querySelector("link[rel='shortcut icon']");
     faviconTag.setAttribute("href", faviconUrl);
+  } else {
+    throw new Error("No se pudo cargar el favicon", error);
   }
 
   // Datos a mostrar en la interfaz
@@ -125,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             .map(
               ([bloque, integrante]) => `
               <tr>
-                <td class="bloque" title="${bloque} de ${integrante}">${bloque}</td>
+                <td class="bloque" title="${bloque} corresponde a ${integrante}">${bloque}</td>
                 <td class="integrante" title="Integrante ${integrante}">${integrante}</td>
               </tr>`
             )
@@ -142,6 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("sort").addEventListener("click", () => {
     window.location.reload();
   });
+
   // Compartir datos sorteados
   if (navigator.share) {
     const sha = document.getElementById("share");
