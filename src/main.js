@@ -146,9 +146,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sha = document.getElementById("share");
     const dataShare = document.getElementById("data-container");
     const formattedData = dataShare.innerText
+      .replace("Bloque", "")
+      .replace("Responsable", "")
       .replace("Sortear", "")
       .replace("Compartir", "");
-    console.log(formattedData);
+
     sha.addEventListener("click", () => {
       try {
         navigator.share({
