@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       try {
         navigator.share({
           title: document.title,
-          text: `Sorteo de bloques del día ${new Date().getDate}`, content,
+          text: `Sorteo de bloques del día ${new Date().getDate()}`, content,
           url: window.location.href,
         });
       } catch (error) {
