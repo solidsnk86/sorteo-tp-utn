@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       try {
         navigator.share({
           title: titulo,
-          text: dataShare,
+          text: dataShare.innerText,
           url: "",
         });
       } catch (error) {
