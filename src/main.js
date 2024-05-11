@@ -155,8 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .replace("Bloque", "")
       .replace("Responsable", "")
       .replace("Sortear", "")
-      .replace("Compartir", "Link del programa:");
-    console.log(formattedData);
+      .replace("Compartir", "Link del programa:")
 
     sha.addEventListener("click", () => {
       try {
