@@ -105,10 +105,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (faviconUrl) {
     const faviconTag = document.querySelector("link[rel='shortcut icon']");
-    const openGraph = document.querySelector("meta[property='og:image']")
-    
+    const openGraph = document.querySelector("meta[property='og:image']");
+
     faviconTag.setAttribute("href", faviconUrl);
-    openGraph.setAttribute("content", faviconUrl)
+    openGraph.setAttribute("content", faviconUrl);
   } else {
     throw new Error("No se pudo cargar el favicon", error);
   }
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .replace("Bloque", "")
       .replace("Responsable", "")
       .replace("Sortear", "")
-      .replace("Compartir", "Link del programa:")
+      .replace("Compartir", "Link del programa:");
 
     sha.addEventListener("click", () => {
       try {
