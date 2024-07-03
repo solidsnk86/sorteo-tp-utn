@@ -56,11 +56,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const integrantes = [
-    "Daniela",
     "Marina",
     "Franco",
     "Juan Pablo",
-    "Agustín",
     "Elias",
     "Gabriel",
     "Maximiliano",
@@ -107,7 +105,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (faviconUrl) {
     const faviconTag = document.querySelector("link[rel='shortcut icon']");
+    const openGraph = document.querySelector("meta[property='og:image']")
+    
     faviconTag.setAttribute("href", faviconUrl);
+    openGraph.setAttribute("content", faviconUrl)
   } else {
     throw new Error("No se pudo cargar el favicon", error);
   }
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   $body.innerHTML = `
     <div id="data-container">
       <h2>${titulo}</h2>
-      <img style="display: flex; margin: 10px auto" src=${faviconUrl} width="45px" height="45px" />
+      <img style="display: flex; margin: 10px auto; border-radius: 50%" src=${faviconUrl} width="45px" height="45px" />
       <table border="1" cellspacing="0" cellpadding="10">
         <thead>
           <tr>
